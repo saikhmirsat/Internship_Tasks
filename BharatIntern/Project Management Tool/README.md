@@ -1,5 +1,5 @@
 ## Project Management Tool
-🚀 Task -2 🚀<br>
+🚀 Task - 2 🚀<br>
 
 This is a Project Management Tool as part of my Internship with Bharat Intern.
 🚀Project Update🚀<br>
