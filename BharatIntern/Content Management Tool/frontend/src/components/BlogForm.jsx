@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 function BlogForm() {
   const [title, setTitle] = useState("");
@@ -7,14 +6,19 @@ function BlogForm() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/blog", {
-        title,
-        content,
-      });
-      console.log("Blog post created:", response.data);
+      await fetch("http://localhost:8000/api/blog", {
+        method: "POST",
+        body: JSON.stringify(title, content),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
     } catch (error) {
       console.error("Error creating blog post:", error);
     }
+    console.log("hi");
   };
 
   return (
@@ -23,12 +27,10 @@ function BlogForm() {
       <input
         type="text"
         placeholder="Title"
-        value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
         placeholder="Content"
-        value={content}
         onChange={(e) => setContent(e.target.value)}
       />
       <button onClick={handleSubmit}>Submit</button>
