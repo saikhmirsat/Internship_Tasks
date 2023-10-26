@@ -69,12 +69,18 @@ function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <button onClick={openModal}>Add Products</button>
+      <button
+        onClick={openModal}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md font-bold hover:bg-blue-700 mb-10"
+      >
+        Add Products
+      </button>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <div
             key={product._id}
-            className="bg-white rounded shadow-lg p-4 h-full"
+            className="bg-white rounded shadow-lg p-4 h-full border border-gray-300  hover:border-blue-700"
           >
             <div className="flex flex-col items-center h-full">
               <img
@@ -82,10 +88,12 @@ function Home() {
                 alt={product.title}
                 className="w-40 h-40 object-contain mx-auto"
               />
-              <h2 className="text-lg font-semibold mt-2">{product.title}</h2>
+              <h2 className="text-sm font-semibold mt-2 h-20 ">
+                {product.title}
+              </h2>
               <p className="text-gray-600">${product.price}</p>
               <Link to={`/productdetails/${product._id}`}>
-                <button className="bg-blue-500 text-white py-2 px-4 mt-2 rounded">
+                <button className="bg-blue-500 text-white py-2 px-4 mt-2  hover:bg-blue-700 rounded">
                   View Details
                 </button>
               </Link>
@@ -96,7 +104,7 @@ function Home() {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white w-96 p-4 rounded shadow-lg">
+          <div className="bg-white w-96 p-4 rounded shadow-lg border border-solid border-gray-300">
             <h2 className="text-2xl font-semibold mb-4">Add Product</h2>
             <div className="flex items-center mb-4">
               <label className="w-1/4">Title</label>
