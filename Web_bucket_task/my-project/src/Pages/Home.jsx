@@ -33,7 +33,7 @@ function Home() {
         count: ratingCount,
       },
     };
-    await fetch("http://localhost:8000/api/products", {
+    await fetch("https://tiny-erin-bat-tie.cyclic.app/products", {
       method: "POST",
       body: JSON.stringify(newProduct), // Remove the spread operator
       headers: {
@@ -53,7 +53,9 @@ function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/products");
+      const response = await fetch(
+        "https://tiny-erin-bat-tie.cyclic.app/products"
+      );
       const data = await response.json();
       setProducts(data);
     } catch (error) {

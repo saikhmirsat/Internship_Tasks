@@ -16,7 +16,7 @@ export default function ProductDetailPage() {
   const navigate = useNavigate();
 
   const getData = async () => {
-    await fetch(`http://localhost:8000/api/products/${id}`)
+    await fetch(`https://tiny-erin-bat-tie.cyclic.app/products/${id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) =>
@@ -38,7 +38,7 @@ export default function ProductDetailPage() {
     };
 
     // Make a PUT request to update the product in your local API
-    await fetch(`http://localhost:8000/api/products/${id}`, {
+    await fetch(`https://tiny-erin-bat-tie.cyclic.app/products/${id}`, {
       method: "PUT",
       body: JSON.stringify(updatedProduct),
       headers: {
@@ -72,7 +72,7 @@ export default function ProductDetailPage() {
       "Are you sure you want to delete this product?"
     );
     if (confirmation) {
-      await fetch(`http://localhost:8000/api/products/${id}`, {
+      await fetch(`https://tiny-erin-bat-tie.cyclic.app/products/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ export default function ProductDetailPage() {
       ) : (
         <div>Loading...</div>
       )}
-      
+
       {/* Edit Modal */}
 
       {isEditModalOpen && (
